@@ -56,7 +56,7 @@ Select Platform: JS
 
 ![download configs](https://github.com/rupeshtiwari/serverless-todo/blob/master/docs/download%20cloud%20config.PNG)
 
-## Step 6
+## Step 6 AWS Mobile Init
 
 Now go to your Angular project and run the given `awsmobile init` command.
 
@@ -156,3 +156,53 @@ export class AppComponent implements OnInit {
 Now run `ng serve -o` you should see Amplify Initialized message.
 
 ![app running](https://github.com/rupeshtiwari/serverless-todo/blob/master/docs/app%20running%20with%20amplify%20initialized.PNG)
+
+## Step 8. Create Simple API
+
+As we have a basic Angular app working now, we will be creating a simple backend API which will pull the test ToDo data for the display.
+
+We first need to activate the API for our Mobile Hub project, run the awsmobile features command and turn on the cloud-api feature.
+
+**Run AwsMobile Features**
+
+Run `awsmobile features` & press space to select
+cloud-api option.
+
+![feature selection]()
+
+Once the cloud-api is enabled, then we will run the awsmobile push command, and this will synchronise the changes we have made on local project to the Mobile Hub project on AWS.
+
+![feature confirmation]()
+
+**Now run AWSMobile Push**
+
+`awsmobile push`
+
+It will initialise and deploy a basic API with name sampleCloudApi with endpoints like /items/ and /items/{id}.
+
+Also the new Lambda will be available in the code so that we can write our logic.
+
+Be patient it may take some time.
+
+![aws push command]()
+
+See your backend folder structure
+
+![backend folder structure]()
+
+**Update Items End Point**
+
+`awsmobilejs\backend\cloud-api\sampleLambda\app.js`
+
+```js
+app.get('/items', function(req, res) {
+  // Add your code here
+  // Return the API Gateway event and query string parameters for example
+  const todos = [
+    { id: 1, content: 'Prepare for the call with Mike @ 8 PM', status: false },
+    { id: 2, content: 'Call with Mike @ 9 PM', status: false }
+  ];
+
+  res.json(todos);
+});
+```
