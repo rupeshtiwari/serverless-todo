@@ -42,10 +42,9 @@ You will be asked 3 questions:
 
 Do this configuration setting once in your computer and you are good to go.
 
-
 ## Step 5
 
-Initialise Mobile Hub Project. 
+Initialise Mobile Hub Project.
 
 Login to your AWS account and go to the Mobile Hub service, and create a new project.
 
@@ -53,6 +52,38 @@ Create Project : serverlessdto
 Select Platform: JS
 
 ## Step 6
-Now go to your Angular project and run the given `awsmobile init` command. 
+
+Now go to your Angular project and run the given `awsmobile init` command.
 
 ![Aws Mobile Init]()
+
+## Step 7
+
+**Integrate Amplify with Angular**
+
+Add Script for Global in angular app
+
+```html
+<script>
+  if (global === undefined) {
+    var global = window
+  }
+</script>
+```
+
+Next go to tsconfig.app.json file and include node for the types in compilerOptions field.
+
+```js
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "types": ["node"] // node is required
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ]
+}
+
+```
