@@ -66,7 +66,7 @@ Now go to your Angular project and run the given `awsmobile init` command.
 
 Add aws config files into the `src\app` folder.
 
-![folder structure]()
+![folder structure](https://github.com/rupeshtiwari/serverless-todo/blob/master/docs/folder%20structure.PNG)
 
 Add Script for Global in head section of `index.html`
 
@@ -155,4 +155,4 @@ export class AppComponent implements OnInit {
 
 Now run `ng serve -o` you should see Amplify Initialized message.
 
-![app running]()
+![app running](https://github.com/rupeshtiwari/serverless-todo/blob/master/docs/app%20running%20with%20amplify%20initialized.PNG)
