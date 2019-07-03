@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import awsmobile from './aws-exports';
-import Amplify from 'aws-amplify';
+import awsmobile from '../aws-exports';
+import Amplify, { API } from 'aws-amplify';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +8,23 @@ import Amplify from 'aws-amplify';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  message = '';
+  todos = [];
+  loading = false;
 
   ngOnInit() {
     Amplify.configure(awsmobile);
-    console.log('Amplify Initialised');
-    this.message = 'Amplify Initialised';
+    const myInit = {
+      // OPTIONAL
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }, // OPTIONAL
+      response: true
+    };
+    this.loading = true;
+    API.get('sampleCloudApi', '/items', myInit).then(data => {
+      this.loading = false;
+      this.todos = data;
+    });
   }
 }

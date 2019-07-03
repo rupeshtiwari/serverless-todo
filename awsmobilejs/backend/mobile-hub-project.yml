@@ -8,14 +8,14 @@ features:
           requires-signin: false
         paths:
           /items: !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/sampleLambda-20190703183357.zip
+            codeFilename: uploads/sampleLambda-20190703184425.zip
             enableCORS: true
             environment: {}
             handler: lambda.handler
             name: sampleLambda
             runtime: nodejs6.10
           '/items/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/sampleLambda-20190703183357.zip
+            codeFilename: uploads/sampleLambda-20190703184425.zip
             enableCORS: true
             environment: {}
             handler: lambda.handler

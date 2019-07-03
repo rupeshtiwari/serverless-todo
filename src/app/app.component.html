@@ -1,5 +1,19 @@
-<div class="jumbotron">
-  <h1 class="display-4">Hello, world!</h1>
-  <hr class="my-4">
-  <p class="lead">{{message}}</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12 jumbotron">
+      <h1 class="display-4">Your ToDos</h1>
+    </div>
+    <div class="col-12" *ngIf="loading">
+      Loading ToDos ...
+    </div>
+    <div class="col-12">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let todo of todos">
+          {{todo.content}}
+          <span class="badge badge-primary pull-right" *ngIf="!todo.status">Pending</span>
+          <span class="badge badge-success pull-right" *ngIf="todo.status">Completed</span>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

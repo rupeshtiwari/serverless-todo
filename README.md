@@ -206,3 +206,75 @@ app.get('/items', function(req, res) {
   res.json(todos);
 });
 ```
+
+## Step 9 Integrate API with Angular
+
+`src\app\app.component.ts`
+
+```ts
+import { Component, OnInit } from '@angular/core';
+import awsmobile from './aws-exports';
+import Amplify, { API } from 'aws-amplify';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+  todos = [];
+  loading = false;
+
+  ngOnInit() {
+    Amplify.configure(awsmobile);
+
+    this.loading = true;
+    API.get('sampleCloudApi', '/items', {}).then(data => {
+      this.loading = false;
+      this.todos = data;
+    });
+  }
+}
+```
+
+`src\app\app.component.html`
+
+```html
+<div class="container">
+  <div class="row">
+    <div class="col-12 jumbotron">
+      <h1 class="display-4">Your ToDos</h1>
+    </div>
+    <div class="col-12" *ngIf="loading">
+      Loading ToDos ...
+    </div>
+    <div class="col-12">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let todo of todos">
+          {{todo.content}}
+          <span class="badge badge-primary pull-right" *ngIf="!todo.status"
+            >Pending</span
+          >
+          <span class="badge badge-success pull-right" *ngIf="todo.status"
+            >Completed</span
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+```
+
+👉**Run Your App Locally**
+
+go to backen packagejson and add start script.
+`awsmobilejs\backend\cloud-api\sampleLambda\package.json`
+
+```js
+ "scripts": {
+    "start": "node app.js"
+  },
+```
+Next open new terminal and run server by running below command
+
+`npm start`
