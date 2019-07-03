@@ -34,6 +34,10 @@ You will be asked 3 questions:
 
 1. accessKeyId 2) secretAccessKey 3) region
 
-![configure]()
+![configure-1](https://github.com/rupeshtiwari/serverless-todo/blob/master/docs/awsmobile%20configure-1.PNG)
+
+![configure-1](https://github.com/rupeshtiwari/serverless-todo/blob/master/docs/awsmobile%20configure-2.PNG)
+
+![configure-1](https://github.com/rupeshtiwari/serverless-todo/blob/master/docs/awsmobile%20configure-3.PNG)
 
 Do this configuration setting once in your computer and you are good to go.
