@@ -42,7 +42,7 @@ You will be asked 3 questions:
 
 Do this configuration setting once in your computer and you are good to go.
 
-## Step 5
+## Step 5. Create Backend App
 
 Initialise Mobile Hub Project.
 
@@ -50,12 +50,18 @@ Login to your AWS account and go to the Mobile Hub service, and create a new pro
 
 Create Project : serverlessdto
 Select Platform: JS
+![create app](https://github.com/rupeshtiwari/serverless-todo/blob/master/docs/create-backend-app.PNG)
+
+![jsplatform](https://github.com/rupeshtiwari/serverless-todo/blob/master/docs/js-platform.PNG)
+
+
+![download configs](https://github.com/rupeshtiwari/serverless-todo/blob/master/docs/download%20cloud%20config.PNG)
 
 ## Step 6
 
 Now go to your Angular project and run the given `awsmobile init` command.
 
-![Aws Mobile Init]()
+![Aws Mobile Init](https://github.com/rupeshtiwari/serverless-todo/blob/master/docs/awsmobile%20initi%20steps.PNG)
 
 ## Step 7
 
