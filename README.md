@@ -41,3 +41,18 @@ You will be asked 3 questions:
 ![configure-1](https://github.com/rupeshtiwari/serverless-todo/blob/master/docs/awsmobile%20configure-3.PNG)
 
 Do this configuration setting once in your computer and you are good to go.
+
+
+## Step 5
+
+Initialise Mobile Hub Project. 
+
+Login to your AWS account and go to the Mobile Hub service, and create a new project.
+
+Create Project : serverlessdto
+Select Platform: JS
+
+## Step 6
+Now go to your Angular project and run the given `awsmobile init` command. 
+
+![Aws Mobile Init]()
